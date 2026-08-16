@@ -75,7 +75,7 @@ const Header = () => {
       <div className='centerStyle'>
         
           <img className='logoStyle'
-            src="/images/MunchixLogo.png"
+            src="/images/munchixLogo.png"
             alt="Munchix logo"
             width={200}
             height={100}
