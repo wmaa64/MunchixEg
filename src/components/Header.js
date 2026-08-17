@@ -26,13 +26,6 @@ const Header = () => {
     storedUserInfo ? setUserInfo(JSON.parse(storedUserInfo)) : setUserInfo(null);
   }, []);
 
-  /*
-  useEffect(() => {
-    if (i18n?.language) {
-      setLanguage(i18n.language);
-    }
-  }, [i18n]);
-  */
   if (!mounted) return null; // 🔥 prevents hydration error
 
   const isRTL = i18n.language === "ar"; // true if Arabic

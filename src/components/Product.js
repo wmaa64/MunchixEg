@@ -16,10 +16,10 @@ const Product = ({ product }) => {
 
 return (
 <>
-    <NextSeo
-        title={`${toTitleCase(seoProductName)} - Macaron Magic`}
+    {/*<NextSeo
+        title={`${toTitleCase(seoProductName)}`}
         description="Great tasting home-made macarons"
-    />
+    />*/}
 
     <div  dir={isRTL ? "rtl" : "ltr"}>
         <Link href={`/product/${product._id}`}>

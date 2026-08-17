@@ -4,12 +4,14 @@ import Link from "next/link";
 import { AiOutlineLeft } from "react-icons/ai";
 import { TiDeleteOutline } from "react-icons/ti";
 import { useStateContext } from "../../context/StateContext";
+import { useTranslation } from "react-i18next";
 import { eUSLocale } from "../../lib/utils";
 import EmptyCart from "./Cart/EmptyCart";
 import toast from "react-hot-toast";
 
 const Cart = () => {
   const cartRef = useRef();
+  const { i18n } = useTranslation();
   const { totalPrice, totalQuantities, cartItems, setShowCart, userInfo, onRemove, } = useStateContext();
 
   const [customerName, setCustomerName] = useState("");
@@ -52,7 +54,8 @@ const Cart = () => {
   }
 }, [userInfo]);
 
-  
+  const isRTL = i18n.language === "ar";
+
   const selectedDeliveryZone = deliveryZones.find(
     (zone) => zone.id === deliveryZone
   );
@@ -285,12 +288,13 @@ const handleCheckout = async () => {
 };
 
   return (
-    <div className="cart-wrapper" ref={cartRef}>
+    <div className="cart-wrapper" ref={cartRef} dir={isRTL ? "rtl" : "ltr"}>
+
       <div className="cart-container">
         <button type="button"  className="cart-heading"  onClick={() => setShowCart(false)}  >
           <AiOutlineLeft />
-          <span className="heading">Your Cart</span>
-          <span className="cart-num-items">({totalQuantities} items)</span>
+          <span className="heading">{isRTL ? "سلة التسوق" : "Your Cart"}</span>
+          <span className="cart-num-items">({ totalQuantities}  {isRTL ? "عناصر" : "items"})</span>
         </button>
 
         {cartItems.length < 1 && (
@@ -301,13 +305,14 @@ const handleCheckout = async () => {
                 onClick={() => setShowCart(false)}
                 className="btn"
               >
-                Continue Shopping
+                {isRTL ? "متابعة التسوق" : "Continue Shopping"}
               </button>
             </Link>
           </EmptyCart>
         )}
 
         <div className="product-container">
+
           {cartItems.length >= 1 &&
             cartItems.map((item) => (
               <div className="product" key={item._id}>
@@ -323,7 +328,7 @@ const handleCheckout = async () => {
                 <div className="item-desc">
                   <div>
                     <span style={{ fontWeight: "600", display: "block" }}>
-                      {item.displayName || item.name?.en || item.name}
+                      {isRTL ? item.name?.ar : item.displayName || item.name?.en || item.name}
                     </span>
 
                     {item.producttype === "meal" &&
@@ -341,7 +346,7 @@ const handleCheckout = async () => {
                               <strong>{cat.category}:</strong>{" "}
                               {cat.selectedItems.map((si, iIndex) => (
                                 <span key={iIndex}>
-                                  {si.quantity}x {si.product?.name?.en}
+                                  {si.quantity}x {isRTL ? si.product?.name?.ar : si.product?.name?.en}
                                   {iIndex < cat.selectedItems.length - 1 ? " + " : ""}
                                 </span>
                               ))}
@@ -351,7 +356,7 @@ const handleCheckout = async () => {
                       )}
 
                     <span style={{ display: "block", marginTop: "8px" }}>
-                      {item.quantity} @ {item.price} EGP
+                      {item.quantity} @ {item.price} {isRTL ? "ج.م" : "EGP"}
                     </span>
                   </div>
                 </div>
@@ -364,32 +369,35 @@ const handleCheckout = async () => {
             
             {!userInfo && (
               <div className="customer-info">
-                <label>Full Name:</label>
-                <input className="input-field" type="text"  placeholder="Enter your full name"  value={customerName} required
-                  onChange={handleNameChange}
+                <label>{isRTL ? "الاسم الكامل" : "Full Name:"}</label>
+                <input className="input-field" type="text"  
+                    placeholder={isRTL ? "أدخل اسمك الكامل" : "Enter your full name"}  value={customerName} required
+                    onChange={handleNameChange}
                 />
 
-                <label>Enter Valid Email:</label>
-                <input className="input-field"  type="email"  placeholder="Enter your email" value={email}  required
-                        onChange={handleEmailChange}
+                <label>{isRTL ? "أدخل بريد إلكتروني صحيح" : "Enter Valid Email:"}</label>
+                <input className="input-field"  type="email"  
+                    placeholder={isRTL ? "أدخل بريدك الإلكتروني" : "Enter your email"} value={email}  required
+                    onChange={handleEmailChange}
                 />
 
-                <label>Enter Phone Number (11 digits):</label>
-                <input className="input-field"  type="tel"    placeholder="Enter your phone number"  value={mobile} required
-                        onChange={handleMobileChange}
+                <label>{isRTL ? "أدخل رقم الهاتف (11 رقم)" : "Enter Phone Number (11 digits):"}</label>
+                <input className="input-field"  type="tel"    
+                    placeholder={isRTL ? "أدخل رقم هاتفك" : "Enter your phone number"}  value={mobile} required
+                    onChange={handleMobileChange}
                 />
               </div>
             )}
 
             {/* Delivery Method Section */}
             <div className="checkout-section">
-              <h3>Delivery Method</h3>
+              <h3>{isRTL ? "طريقة التسليم" : "Delivery Method"}</h3>
 
               <label className="checkout-option">
                 <input type="radio"  name="deliveryMethod"  value="delivery"  checked={deliveryMethod === "delivery"}
                   onChange={() => setDeliveryMethod("delivery")}
                 />
-                <span>Delivery</span>
+                <span>{isRTL ? "توصيل" : "Delivery"}</span>
               </label>
 
               <label className="checkout-option">
@@ -401,17 +409,17 @@ const handleCheckout = async () => {
                     setDeliveryInstructions("");
                   }}
                 />
-                <span>Pick up</span>
+                <span>{isRTL ? "استلام" : "Pick up"}</span>
               </label>
 
               {deliveryMethod === "delivery" && (
                 <div className="delivery-details">
 
-                  <label>Delivery Area:</label>
+                  <label>{isRTL ? "منطقة التسليم" : "Delivery Area:"}</label>
 
                   <select  className="input-field"  value={deliveryZone}  onChange={(e) => setDeliveryZone(e.target.value)}
                   >
-                    <option value="">Select your area</option>
+                    <option value="">{isRTL ? "اختر منطقتك" : "Select your area"}</option>
 
                     {deliveryZones.map((zone) => (
                       <option key={zone.id} value={zone.id}>
@@ -420,17 +428,17 @@ const handleCheckout = async () => {
                     ))}
                   </select>
 
-                  <label>Delivery Address:</label>
+                  <label>{isRTL ? "عنوان التسليم" : "Delivery Address:"}</label>
 
-                  <textarea  className="input-field"  placeholder="Street, building number, apartment, floor..."
+                  <textarea  className="input-field"  placeholder={isRTL ? "الشارع، رقم المبنى، الشقة، الطابق..." : "Street, building number, apartment, floor..."}
                     value={address}
                     onChange={handleAddressChange}
                     rows={3}
                   />
 
-                  <label>Delivery Instructions (optional):</label>
+                  <label>{isRTL ? "تعليمات التسليم (اختياري):" : "Delivery Instructions (optional):"}</label>
 
-                  <textarea  className="input-field"  placeholder="Any instructions for the delivery driver?"
+                  <textarea  className="input-field"  placeholder={isRTL ? "أي تعليمات للسائق؟" : "Any instructions for the delivery driver?"}
                     value={deliveryInstructions}
                     onChange={handleDeliveryInstructionsChange}
                     rows={2}
@@ -442,13 +450,13 @@ const handleCheckout = async () => {
 
             {/* Payment Method Section */}
             <div className="checkout-section">
-              <h3>Payment Method</h3>
+              <h3>{isRTL ? "طريقة الدفع" : "Payment Method"}</h3>
 
               <label className="checkout-option">
                 <input type="radio"   name="paymentMethod"   value="online"   checked={paymentMethod === "online"}
                   onChange={() => setPaymentMethod("online")}
                 />
-                <span>Pay online</span>
+                <span>{isRTL ? "دفع عبر الإنترنت" : "Pay online"}</span>
               </label>
 
               <label className="checkout-option">
@@ -456,7 +464,7 @@ const handleCheckout = async () => {
                   checked={paymentMethod === "cash_on_delivery"}
                   onChange={() => setPaymentMethod("cash_on_delivery")}
                 />
-                <span>Cash on delivery</span>
+                <span>{isRTL ? "دفع عند الاستلام" : "Cash on delivery"}</span>
               </label>
 
               <label className="checkout-option">
@@ -464,24 +472,24 @@ const handleCheckout = async () => {
                   checked={paymentMethod === "card_on_delivery"}
                   onChange={() => setPaymentMethod("card_on_delivery")}
                 />
-                <span>Visa on delivery</span>
+                <span>{isRTL ? "فيزا عند الاستلام" : "Visa on delivery"}</span>
               </label>
             </div>
 
             <div className="total">
-              <h3>Subtotal:</h3>
+              <h3>{isRTL ? "المجموع الفرعي:" : "Subtotal:"}</h3>
               <h3>جنيه {eUSLocale(totalPrice)}</h3>
             </div>
 
             <div>
-                <h3>Delivery:</h3>
+                <h3>{isRTL ? "الشحن:" : "Delivery:"}</h3>
                 <h3>
                   جنيه {eUSLocale(deliveryFee)}
                 </h3>
               </div>
 
               <div>
-                <h3>Total:</h3>
+                <h3>{isRTL ? "الإجمالي:" : "Total:"}</h3>
                 <h3>
                   جنيه {eUSLocale(finalTotal)}
                 </h3>

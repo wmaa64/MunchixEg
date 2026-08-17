@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai";
 import { Product, Info, StarRating } from "../../components";
 import { useStateContext } from "../../../context/StateContext";
+import {useTranslation} from "react-i18next";
 import { useRouter } from "next/router";
 import { NextSeo } from "next-seo";
 
@@ -11,12 +12,19 @@ const toTitleCase = (str) =>
 const ProductDetails = () => {
   const router = useRouter();
   const { id } = router.query; // get product ID from URL
+  const { i18n } = useTranslation();
   const [product, setProduct] = useState(null);
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
 
   const { decQty, incQty, qty, onAdd, setShowCart } = useStateContext();
 
+  const [mounted, setMounted] = useState(false);
+     
+  useEffect(() => {
+        setMounted(true);
+    }, []);
+  
   useEffect(() => {
     if (!id) return; // Wait until router is ready
 
@@ -48,14 +56,19 @@ const ProductDetails = () => {
     fetchData();
   }, [id]);
 
+  if (!mounted) return null; // 🔥 prevents hydration error
+
+  const isRTL = i18n.language === "ar"; // true if Arabic
+
   if (loading) return <p>Loading product details...</p>;
   if (!product) return <p>Product not found.</p>;
 
   return (
     <>
-      <NextSeo title={`${toTitleCase(product.name.en)} - Things to Sale`} description="All Things to Sale" />
+      <NextSeo title={`${toTitleCase(product.name.en)} - Munchix Restaurant`} 
+               description="Order online from Munchix Restaurant - Delicious food delivered to your door" />
 
-      <div>
+      <div dir={isRTL ? "rtl" : "ltr"}>
         <div className="product-detail-container">
           <div>
             <div className="image-container">
@@ -64,7 +77,7 @@ const ProductDetails = () => {
           </div>
 
           <div className="product-detail-desc">
-            <h1>{product.name.en}</h1>
+            <h1>{isRTL ? product.name.ar : product.name.en}</h1>
 
             <div className="reviews">
               <StarRating />
@@ -72,7 +85,7 @@ const ProductDetails = () => {
             </div>
 
             <h4>Details:</h4>
-            <p>{product.description.en}</p>
+            <p>{isRTL ? product.description.ar : product.description.en}</p>
 
             <p className="price">
               جنيه مصرى
@@ -95,22 +108,22 @@ const ProductDetails = () => {
               </p>
             </div>
 
-            <div className="sku">SKU: {product._id}</div>
+            {/* <div className="sku">SKU: {product._id}</div> */}
 
             <div className="buttons">
               <button type="button" className="add-to-cart" onClick={() => onAdd(product, qty)}>
-                Add to Cart
+                {isRTL ? "أضف إلى السلة" : "Add to Cart"}
               </button>
 
               <button type="button" className="buy-now" onClick={() => setShowCart(true)}>
-                Checkout
+                {isRTL ? "الدفع الآن" : "Checkout"}
               </button>
             </div>
           </div>
         </div>
 
         <div className="maylike-products-wrapper">
-          <h2>Add-ons</h2>
+          <h2>{isRTL ? "إضافات" : "Add-ons"}</h2>
           <div className="marquee">
             <div className="maylike-products-container track">
               {products.map((item) => (

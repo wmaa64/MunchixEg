@@ -50,10 +50,10 @@ const Home = () => {
 
 return (
 <>
-  {/*<NextSeo
-    title="Macaron Magic"
-    description="Great tasting home made macarons"
-  />*/}
+  <NextSeo
+    title="Munchix Delicious Food Delivery Service"
+    description="Great food, delivered fast. Order from Munchix and enjoy your favorite meals at home."
+  />
 
   <div>
     <ImageCarousel images={images} interval={5000} />

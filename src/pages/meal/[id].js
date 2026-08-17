@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import { useStateContext } from "../../../context/StateContext";
+import { useTranslation } from "react-i18next";
 import { Button, IconButton } from "@mui/material";
 import { AiOutlinePlus, AiOutlineMinus } from "react-icons/ai";
 
 const MealBuilder = () => {
   const router = useRouter();
+  const { i18n } = useTranslation();
   const { id } = router.query;
   const [meal, setMeal] = useState(null);
   const [allProducts, setAllProducts] = useState([]);
@@ -32,6 +34,8 @@ const MealBuilder = () => {
 
     fetchMeal();
   }, [id]);
+
+  const isRTL = i18n.language === "ar"; // true if Arabic
 
   // Quantity adjustment per sub-item
   const handleQuantityChange = (category, productId, delta, maxQty) => {
@@ -157,16 +161,17 @@ const handleAddMeal = () => {
   if (!meal) return <p>Loading meal details...</p>;
 
   return (
-    <div style={{ padding: "20px" }}>
-      <h1>{meal.name.en}</h1>
+    <div style={{ padding: "20px" }} dir={isRTL ? "rtl" : "ltr"}>
+
+      <h1>{isRTL ? meal.name.ar : meal.name.en}</h1>
       <img
         src={meal.image}
-        alt={meal.name.en}
+        alt={isRTL ? meal.name.ar : meal.name.en}
         style={{ width: "300px", borderRadius: "10px" }}
       />
-      <p>{meal.description.en}</p>
+      <p>{isRTL ? meal.description.ar : meal.description.en}</p>
 
-      <h2>Build Your Meal</h2>
+      <h2>{isRTL ? "بناء طعامك" : "Build Your Meal"}</h2>
 
       {/* Render categories */}
       {meal.mealComponents.map((comp, index) => (
@@ -213,8 +218,8 @@ const handleAddMeal = () => {
                         borderRadius: "8px",
                       }}
                     />
-                    <p>{p.name.en}</p>
-                    <small>{p.price} EGP</small>
+                    <p>{isRTL ? p.name.ar : p.name.en}</p>
+                    <small>{p.price} {isRTL ? "ج.م" : "EGP"}</small>
 
                     {/* Quantity per subitem */}
                     <div
@@ -284,7 +289,7 @@ const handleAddMeal = () => {
         onClick={handleAddMeal}
         style={{ marginTop: "20px" }}
       >
-        Add Meal to Basket
+        {isRTL ? "إضافة الوجبة إلى السلة" : "Add Meal to Basket"}
       </Button>
     </div>
   );
