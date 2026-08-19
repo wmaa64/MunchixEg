@@ -204,6 +204,8 @@ a {
   padding-top: 30px;
 }
 /* For Mobile Design ----------------------------------*/
+@media (max-width: 768px) {
+
 /* ===== FIXED HEADER + NAVBAR ===== */
 
     .flagwrapper {
@@ -213,16 +215,17 @@ a {
     }
 
     .flagwrapper .flag {
-      width: 26px;
-      height: 18px;
+      width: 52px;
+      height: 32px;
     }
 
     .flagwrapper span {
-      font-size: 14px;
+      font-size: 30px;
     }
 
   .sign-wrapper {
     display: flex;
+    flex-direction: column;
     gap: 2px;
   }
 
@@ -231,13 +234,12 @@ a {
     border: none;
     background: transparent;
     cursor: pointer;
-    font-size: 14px;
-    font-weight: 600;
+    font-size: 30px;
+    font-weight: 300;
     }
 
   
-.cart-icon {
-    font-size: 25px;
+  .cart-icon {
     color: gray;
     cursor: pointer;
     position: relative;
@@ -251,14 +253,18 @@ a {
     transform: scale(1.1, 1.1);
   }
   
+  .shopping-icon {
+    font-size: 60px;
+  }
+
   .cart-item-qty {
     position: absolute;
-    right: -8px;
-    font-size: 12px;
+    right: 35px;
+    font-size: 30px;
     color: white;
     background-color: black;
-    width: 18px;
-    height: 18px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
     text-align: center;
     font-weight: 600;
@@ -270,6 +276,12 @@ a {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+}
+
+.user-info {
+  padding-Left: 10;
+  font-size: 30px;
+  margin-left: 8px;
 }
 
 .navbar-top-row {
@@ -300,7 +312,7 @@ a {
     background: #fafafa;
     color: #777;
 
-    font-size: 14px;
+    font-size: 30px;
     font-weight: 500;
 }
 
@@ -333,7 +345,7 @@ a {
   color: #777;
 
   text-decoration: none;
-  font-size: 14px;
+  font-size: 30px;
   font-weight: 500;
 
   white-space: nowrap;
@@ -370,7 +382,7 @@ a {
     border: 1px solid #ccc;
     border-radius: 6px;
 
-    font-size: 14px;
+    font-size: 30px;
 }
 
 .navbar-search button {
@@ -381,37 +393,11 @@ a {
 
     background: #ff5a1f;
     color: white;
+    font-size: 30px;
 
     cursor: pointer;
 }
-/*#=============*/
 
-
-.cart-icon {
-  font-size: 25px;
-  color: gray;
-  cursor: pointer;
-  position: relative;
-  transition: transform 0.4s ease;
-  border: none;
-  background-color: transparent;
-  vertical-align: middle;
-}
-.cart-icon:hover {
-  transform: scale(1.1, 1.1);
-}
-.cart-item-qty {
-  position: absolute;
-  right: -8px;
-  font-size: 12px;
-  color: white;
-  background-color: black;
-  width: 18px;
-  height: 18px;
-  border-radius: 50%;
-  text-align: center;
-  font-weight: 600;
-}
 
 /* EMAIL SIGN-UP -------------------------------- */
 .email-signup {
@@ -586,15 +572,24 @@ a {
 /* PRODUCT PAGE ------------------------------------- */
 .products-container {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
   gap: 15px;
   margin-top: 20px;
   width: 100%;
 }
+
+.products-container > div {
+  width: 100%;
+  height: auto;
+}
+
 .product-card {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100%;
   text-align: center;
   justify-content: center;
   cursor: pointer;
@@ -608,6 +603,7 @@ a {
 }
 
 .product-image {
+  width: 100%;
   border-radius: 15px;
   background-color: #ebebeb;
   transform: scale(1, 1);
@@ -615,9 +611,12 @@ a {
 }
 
 .product-name {
+  font-size: 35px;
   font-weight: 500;
 }
+
 .product-price {
+  font-size: 35px;
   font-weight: 800;
   margin-top: 6px;
   color: black;
@@ -641,6 +640,7 @@ a {
   cursor: pointer;
   transition: 0.3s ease-in-out;
 }
+
 .product-detail-image:hover {
   background-color: #f02d34;
 }
@@ -1457,25 +1457,26 @@ table.additional-info > tbody > tr > th {
 
 /* FLIP IMAGES */
 .fliptile {
+  display: flex;
+  justify-content: center;
   color: #fff;
   position: relative;
   overflow: hidden;
   margin: 10px;
-  min-width: 220px;
-  max-width: 310px;
   width: 100%;
-  color: #000000;
-  text-align: left;
+  height: auto;
   font-size: 16px;
   perspective: 50em;
 }
+
 .fliptile * {
   box-sizing: padding-box;
   transition: all 0.2s ease-out;
 }
 
 .fliptile img {
-  max-width: 100%;
+  width: 90%;
+  height: auto;
   vertical-align: top;
 }
 
@@ -1493,9 +1494,6 @@ table.additional-info > tbody > tr > th {
 
 .fliptile h2 {
   margin: 0 0 5px;
-}
-
-.fliptile h2 {
   font-weight: 600;
 }
 
@@ -1716,79 +1714,6 @@ table.additional-info > tbody > tr > th {
   transform: translateY(0px);
 }
 
-/* FLIP IMAGES */
-.fliptile {
-  color: #fff;
-  position: relative;
-  overflow: hidden;
-  margin: 10px;
-  min-width: 220px;
-  max-width: 310px;
-  width: 100%;
-  color: #000000;
-  text-align: left;
-  font-size: 16px;
-  perspective: 50em;
-}
-
-.fliptile * {
-  box-sizing: padding-box;
-  transition: all 0.2s ease-out;
-}
-
-.fliptile img {
-  max-width: 100%;
-  vertical-align: top;
-}
-
-.fliptile figcaption {
-  top: 20px;
-  left: 20px;
-  right: 20px;
-  bottom: 20px;
-  padding: 20px;
-  position: absolute;
-  opacity: 0;
-  z-index: 1;
-  transform: translateY(40px);
-}
-
-.fliptile h2 {
-  margin: 0 0 5px;
-}
-
-.fliptile h2 {
-  font-weight: 600;
-}
-
-.fliptile:after {
-  background-color: rgb(0, 0, 0, 0.1);
-  position: absolute;
-  content: "";
-  display: block;
-  top: 20px;
-  left: 20px;
-  right: 20px;
-  bottom: 20px;
-  transition: all 0.4s ease-in-out;
-  transform: rotateX(-90deg);
-  transform-origin: 50% 50%;
-  opacity: 0;
-}
-
-.fliptile:hover figcaption,
-.fliptile.hover figcaption {
-  transform: translateY(0%);
-  opacity: 1;
-  transition-delay: 0.2s;
-}
-
-.fliptile:hover:after,
-.fliptile.hover:after {
-  transform: rotateX(0);
-  opacity: 0.9;
-}
-
 /* UPDATED STAR COUNT */
 .star-rating button { 
   background-color: transparent;
@@ -1855,16 +1780,19 @@ table.additional-info > tbody > tr > th {
 
 /* === Image Carousel Styles === */
 .carousel {
+  display: flex;
   width: 100%;
-  height: 360px;
+  height: 300px;
   position: relative;
   overflow: hidden;
+  margin: 0 auto;
+  border-radius: 25px;
 }
 
 .carousel-image {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: fill  ;
   position: absolute;
   top: 0;
   left: 0;
@@ -1931,12 +1859,16 @@ table.additional-info > tbody > tr > th {
 }
 
 
-   .rightStyle  { display: flex; align-items: center; gap: 12px }
+.rightStyle  { 
+    display: flex; 
+    align-items: center; 
+    gap: 12px 
+ }
 
    /*.logoStyle  { width: 150; height: 60; object-fit:fill; cursor: pointer;  }*/
 .logoStyle {
-  width: 200px;
-  height: 100px;
+  width: 220px;
+  height: 120px;
   object-fit: fill;  /* use contain to keep aspect ratio */
 }
 
@@ -1961,13 +1893,13 @@ table.additional-info > tbody > tr > th {
 }
 
 .phone-icon {
-  font-size: 18px;
+  font-size: 25px;
 }
 
 .phone-number {
   color: #fff;
   text-decoration: none;
-  font-size: 14px;
+  font-size: 25px;
 }
 
 .phone-number:hover {
@@ -2040,8 +1972,34 @@ table.additional-info > tbody > tr > th {
   vertical-align: middle;
 }
 
-
+}
 /* End Of Mobile Design -------------------------------*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 /* For Desktop Design -------------------------------- */
@@ -2067,6 +2025,7 @@ table.additional-info > tbody > tr > th {
 
   .sign-wrapper {
     display: flex;
+    flex-direction: column;
     gap: 2px;
   }
 
@@ -2095,14 +2054,18 @@ table.additional-info > tbody > tr > th {
     transform: scale(1.1, 1.1);
   }
   
+  .shopping-icon {
+    font-size: 30px;
+  }
+
   .cart-item-qty {
     position: absolute;
-    right: -8px;
-    font-size: 12px;
+    right: 20px;
+    font-size: 14px;
     color: white;
     background-color: black;
-    width: 18px;
-    height: 18px;
+    width: 25px;
+    height: 25px;
     border-radius: 50%;
     text-align: center;
     font-weight: 600;
@@ -2114,6 +2077,13 @@ table.additional-info > tbody > tr > th {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+}
+
+
+.user-info {
+  padding-Left: 10;
+  font-size: 14px;
+  margin-left: 8px;
 }
 
 .navbar-top-row {
@@ -2225,36 +2195,8 @@ table.additional-info > tbody > tr > th {
 
     background: #ff5a1f;
     color: white;
-
+    font-size: 14px;
     cursor: pointer;
-}
-/*#=============*/
-
-
-.cart-icon {
-  font-size: 25px;
-  color: gray;
-  cursor: pointer;
-  position: relative;
-  transition: transform 0.4s ease;
-  border: none;
-  background-color: transparent;
-  vertical-align: middle;
-}
-.cart-icon:hover {
-  transform: scale(1.1, 1.1);
-}
-.cart-item-qty {
-  position: absolute;
-  right: -8px;
-  font-size: 12px;
-  color: white;
-  background-color: black;
-  width: 18px;
-  height: 18px;
-  border-radius: 50%;
-  text-align: center;
-  font-weight: 600;
 }
 
 /* EMAIL SIGN-UP -------------------------------- */
@@ -2429,6 +2371,14 @@ table.additional-info > tbody > tr > th {
 
 /* PRODUCT PAGE ------------------------------------- */
 .products-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 25px;
+  width: 100%;
+  margin-top: 20px;
+}
+/*
+.products-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -2436,10 +2386,19 @@ table.additional-info > tbody > tr > th {
   margin-top: 20px;
   width: 100%;
 }
+*/
+
+.products-container > div {
+  width: 100%;
+}
+
 .product-card {
   display: flex;
   flex-direction: column;
   text-align: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
   justify-content: center;
   cursor: pointer;
   transform: scale(1, 1);
@@ -2453,6 +2412,8 @@ table.additional-info > tbody > tr > th {
 
 .product-image {
   border-radius: 15px;
+  width: 100%;
+  object-fit: cover;
   background-color: #ebebeb;
   transform: scale(1, 1);
   transition: transform 0.5s ease;
@@ -3300,6 +3261,14 @@ table.additional-info > tbody > tr > th {
 }
 
 /* FLIP IMAGES */
+.fliptile img {
+  width: 100%;
+  height: 200px;
+  object-fit: contain;
+  display: block;
+}
+
+/*
 .fliptile {
   color: #fff;
   position: relative;
@@ -3313,6 +3282,8 @@ table.additional-info > tbody > tr > th {
   font-size: 16px;
   perspective: 50em;
 }
+*/
+
 .fliptile * {
   box-sizing: padding-box;
   transition: all 0.2s ease-out;
@@ -3560,79 +3531,6 @@ table.additional-info > tbody > tr > th {
   transform: translateY(0px);
 }
 
-/* FLIP IMAGES */
-.fliptile {
-  color: #fff;
-  position: relative;
-  overflow: hidden;
-  margin: 10px;
-  min-width: 220px;
-  max-width: 310px;
-  width: 100%;
-  color: #000000;
-  text-align: left;
-  font-size: 16px;
-  perspective: 50em;
-}
-
-.fliptile * {
-  box-sizing: padding-box;
-  transition: all 0.2s ease-out;
-}
-
-.fliptile img {
-  max-width: 100%;
-  vertical-align: top;
-}
-
-.fliptile figcaption {
-  top: 20px;
-  left: 20px;
-  right: 20px;
-  bottom: 20px;
-  padding: 20px;
-  position: absolute;
-  opacity: 0;
-  z-index: 1;
-  transform: translateY(40px);
-}
-
-.fliptile h2 {
-  margin: 0 0 5px;
-}
-
-.fliptile h2 {
-  font-weight: 600;
-}
-
-.fliptile:after {
-  background-color: rgb(0, 0, 0, 0.1);
-  position: absolute;
-  content: "";
-  display: block;
-  top: 20px;
-  left: 20px;
-  right: 20px;
-  bottom: 20px;
-  transition: all 0.4s ease-in-out;
-  transform: rotateX(-90deg);
-  transform-origin: 50% 50%;
-  opacity: 0;
-}
-
-.fliptile:hover figcaption,
-.fliptile.hover figcaption {
-  transform: translateY(0%);
-  opacity: 1;
-  transition-delay: 0.2s;
-}
-
-.fliptile:hover:after,
-.fliptile.hover:after {
-  transform: rotateX(0);
-  opacity: 0.9;
-}
-
 /* UPDATED STAR COUNT */
 .star-rating button { 
   background-color: transparent;
@@ -3700,15 +3598,17 @@ table.additional-info > tbody > tr > th {
 /* === Image Carousel Styles === */
 .carousel {
   width: 100%;
-  height: 360px;
+  height: 300px;
   position: relative;
   overflow: hidden;
+  margin: 0 auto;
+  border-radius: 25px;
 }
 
 .carousel-image {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: fill;
   position: absolute;
   top: 0;
   left: 0;

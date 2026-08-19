@@ -19,7 +19,8 @@ const ImageCarousel = ({ images, interval }) => {
   };
 
   return (
-    <div className="carousel">
+    <div className="carousel" >
+
       {images.map((image, index) => (
         <img
           key={index}

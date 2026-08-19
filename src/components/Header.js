@@ -41,6 +41,7 @@ const Header = () => {
 
   return (
     <div className='headerContainerStyle' dir={isRTL ? "rtl" : "ltr"} >
+      
       {/* Left: language toggle */}
       <div className='leftStyle'>
         <button className="langButtonStyle"
@@ -76,60 +77,38 @@ const Header = () => {
         
       </div>
 
-      <div  className='sign-wrapper'>
+      
+      {/* Right: user welcome */}
+      <div className='rightStyle'>  
+
+        <div  className='sign-wrapper'>
+
           {userInfo ? (
               <button onClick={logoutUser} >
-                  Logout
+                  {t("logout")}
               </button>
           ) : (
-              <>
+              <div>
                   <Link href="/users/login">
                       <button >{t("login")}</button>
                   </Link>
-                  <span>/</span>
+                  <span> - </span>
                   <Link href="/users/register">
                       <button >{t("register")}</button>
                   </Link>
-              </>
+              </div>
           )}
-
-          <button  type="button"   className="cart-icon"  onClick={() => setShowCart(true)}>
-              <AiOutlineShopping size={28} />
-              <span className="cart-item-qty">{totalQuantities}</span>
-          </button>
-          {showCart && <Cart />}
-      </div>
-
-
-      {/* Right: user welcome */}
-      <div className='rightStyle'>   
-        {/* Telephone icon + number */}
-        <div>
-          <span className="phone-icon">{t("orderByPhone")}: 📞</span>
-          <a href="tel:+201234567890" className="phone-number">
-            +20 123 456 7890
-          </a><br/>
-          <span className="phone-icon">{t("emailto")}: </span>
-          <a href="mailto:sales@munchix.com?subject=Inquiry&body=Hello" className="phone-number" >
-            📧 sales@munchix.com
-          </a><br/>
-
-          <div >
-              <a href="https://www.instagram.com/Munchix" target="_blank" rel="noopener noreferrer">
-                  <AiFillInstagram   size={30} color="#E1306C" /> {/* Instagram */}
-              </a>
-              <a href="https://twitter.com/Munchix" target="_blank" rel="noopener noreferrer">
-                  <AiOutlineTwitter  size={30} color="#1DA1F2" /> {/* Twitter */}
-              </a>
-              <a href="https://facebook.com/Munchix" target="_blank" rel="noopener noreferrer">
-                  <AiFillFacebook    size={30} color="#1877F2" /> {/* Facebook */}
-              </a>
-              <a href="https://wa.me/201005126629?text=I%20just%20placed%20an%20order" target="_blank" rel="noopener noreferrer">
-                  <AiOutlineWhatsApp size={30} color="#25D366" /> {/* WhatsApp */}
-              </a>
+          
+          <div className='sign-wrapper'>
+            <button  type="button"   className="cart-icon"  onClick={() => setShowCart(true)}>
+                <AiOutlineShopping   className='shopping-icon'  />
+                <span className="cart-item-qty">{totalQuantities}</span>
+            </button>
+            {showCart && <Cart />}
           </div>
 
         </div>
+
       </div>
     </div>
   );

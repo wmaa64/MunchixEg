@@ -58,13 +58,12 @@ return (
 <div className="navbar-container"  dir={isRTL ? "rtl" : "ltr"}>
 
     {userInfo ? (
-    <div style={{ paddingLeft: 10, fontSize: 16 }}>
-        <span style={{ marginRight: 8 }}>{t("welcome")}</span>
-        <strong>{(userInfo.name).substring(0, (userInfo.name).indexOf(' '))}</strong>
-    </div>
+        <div className="user-info" >
+            <span>{t("welcome")}</span>
+            <strong>{(userInfo.name).substring(0, (userInfo.name).indexOf(' '))}</strong>
+        </div>
     ) : (
-    /* you can replace with login/signup links/buttons if needed */
-    <div style={{ paddingLeft: 10, fontSize: 14, opacity: 0.9 }}>{t("guest")}</div>
+        <div className="user-info">{t("guest")}</div>
     )}
 
     <div className="navbar-top-row">

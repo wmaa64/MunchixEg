@@ -21,11 +21,11 @@ return (
         description="Great tasting home-made macarons"
     />*/}
 
-    <div  dir={isRTL ? "rtl" : "ltr"}>
+    <div dir={isRTL ? "rtl" : "ltr"}>
         <Link href={`/product/${product._id}`}>
             <div className="product-card">
                 <figure className="fliptile">
-                    <img   src={product.image}    width={250}   height={250}  className="product-image"  />
+                    <img   src={product.image}   className="product-image"  />
                     <figcaption>
                         <p className="product-name">{isRTL ? product.name.ar : product.name.en}</p>
                     </figcaption>

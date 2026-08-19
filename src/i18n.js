@@ -22,10 +22,11 @@ const resources = {
         "guest": "Guest",
 
         //Header
-        "orderByPhone": "Order By Phone",
+        "orderByPhone": "Order",
         "login": "Sign In",
         "register": "Sign Up",
-        "emailto": "Email Us"
+        "logout": "Logout",
+        "emailto": "Email"
 
       },
     },
@@ -47,10 +48,11 @@ const resources = {
         "guest": "ضيف",
 
         //Header
-        "orderByPhone": "طلب عبر الهاتف",
-        "login": "تسجيل الدخول",
+        "orderByPhone": "اطلب",
+        "login": "تسجيل دخول",
         "register": "حساب جديد",
-        "emailto": "أرسل بريدًا"
+        "logout": "خروج",
+        "emailto": "البريد"
       },
     },
 };
