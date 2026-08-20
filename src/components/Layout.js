@@ -19,10 +19,12 @@ return (
         <meta name="theme-color" content="#ffffff" />
         <meta name="next-head-count" content="10" />
     </Head>
-    <header>
+
+    <div className="stick-area" >
         <Header />
         <NavBar />
-    </header>
+    </div>
+
     <div className="layout">
         <main className="main-container">
             {children}

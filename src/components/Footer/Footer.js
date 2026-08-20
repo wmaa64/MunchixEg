@@ -38,16 +38,16 @@ const Footer = () => {
                 
                 <div className="icons">
                     <a href="https://www.instagram.com/Munchix" target="_blank" rel="noopener noreferrer">
-                        <AiFillInstagram   size={30} color="#E1306C" /> {/* Instagram */}
+                        <AiFillInstagram   color="#E1306C"  className="social-media-icon"/> {/* Instagram */}
                     </a>
                     <a href="https://twitter.com/Munchix" target="_blank" rel="noopener noreferrer">
-                        <AiOutlineTwitter  size={30} color="#1DA1F2" /> {/* Twitter */}
+                        <AiOutlineTwitter  color="#1DA1F2" className="social-media-icon" /> {/* Twitter */}
                     </a>
                     <a href="https://www.facebook.com/share/Munchix" target="_blank" rel="noopener noreferrer">
-                        <AiFillFacebook    size={30} color="#1877F2" /> {/* Facebook */}
+                        <AiFillFacebook    color="#1877F2" className="social-media-icon" /> {/* Facebook */}
                     </a>
                     <a href="https://wa.me/201005126629" target="_blank" rel="noopener noreferrer">
-                        <AiOutlineWhatsApp size={30} color="#25D366" /> {/* WhatsApp */}
+                        <AiOutlineWhatsApp color="#25D366" className="social-media-icon" /> {/* WhatsApp */}
                     </a>
                 </div>
             </div>

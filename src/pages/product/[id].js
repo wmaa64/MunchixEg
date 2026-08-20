@@ -12,6 +12,7 @@ const toTitleCase = (str) =>
 const ProductDetails = () => {
   const router = useRouter();
   const { id } = router.query; // get product ID from URL
+
   const { i18n } = useTranslation();
   const [product, setProduct] = useState(null);
   const [products, setProducts] = useState([]);
@@ -84,8 +85,8 @@ const ProductDetails = () => {
               <p>(20)</p>
             </div>
 
-            <h4>Details:</h4>
-            <p>{isRTL ? product.description.ar : product.description.en}</p>
+            <h4>{ isRTL ? "تفاصيل:" : "Details:" }</h4>
+            <p>{ isRTL ? product.description.ar : product.description.en}</p>
 
             <p className="price">
               جنيه مصرى
@@ -96,7 +97,7 @@ const ProductDetails = () => {
             </p>
 
             <div className="quantity">
-              <h3>Quantity:</h3>
+              <h3>{ isRTL ?"الكمية:" : "Quantity:" }</h3>
               <p className="quantity-desc">
                 <span className="minus" onClick={decQty}>
                   <AiOutlineMinus />
@@ -108,16 +109,20 @@ const ProductDetails = () => {
               </p>
             </div>
 
-            {/* <div className="sku">SKU: {product._id}</div> */}
 
             <div className="buttons">
               <button type="button" className="add-to-cart" onClick={() => onAdd(product, qty)}>
                 {isRTL ? "أضف إلى السلة" : "Add to Cart"}
               </button>
 
-              <button type="button" className="buy-now" onClick={() => setShowCart(true)}>
+              <button type="button" className="buy-now" onClick={() => router.push("/checkout")}>
                 {isRTL ? "الدفع الآن" : "Checkout"}
               </button>
+
+              {/*<button type="button" className="buy-now" onClick={() => setShowCart(true)}>
+                {isRTL ? "الدفع الآن" : "Checkout"}
+              </button>*/}
+
             </div>
           </div>
         </div>

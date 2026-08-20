@@ -35,71 +35,49 @@ export const StateContext = ({ children }) => {
     let foundProduct;
     let index;
 
-const onAdd = (product, quantity) => {
-  const checkProductInCart = cartItems.find((item) => item._id === product._id);
-
-  setTotalPrice(
-    (prevTotalPrice) => prevTotalPrice + product.price * quantity
-  );
-  setTotalQuantities(
-    (prevTotalQuantities) => prevTotalQuantities + quantity
-  );
-
-  if (checkProductInCart) {
-    // ✅ properly return for all items, not just matched one
-    const updatedCartItems = cartItems.map((cartProduct) => {
-      if (cartProduct._id === product._id) {
-        // Merge data safely (keep selectedCategories if new one has them)
-        return {
-          ...cartProduct,
-          quantity: cartProduct.quantity + quantity,
-          selectedCategories:
-            product.selectedCategories || cartProduct.selectedCategories,
-        };
-      } else {
-        return cartProduct;
-      }
-    });
-
-    setCartItems(updatedCartItems);
-  } else {
-    // ✅ new product (meal or normal)
-    const newProduct = {
-      ...product,
-      quantity,
-      selectedCategories: product.selectedCategories || [],
-    };
-    setCartItems([...cartItems, newProduct]);
-  }
-
-  // ✅ safer toast message
-  toast.success(
-    `${quantity} ${product.name?.en || product.name} added to the cart.`
-  );
-};
-
-
-    /*
     const onAdd = (product, quantity) => {
-        const checkProductInCart = cartItems.find((item) => item._id === product._id );
+    const checkProductInCart = cartItems.find((item) => item._id === product._id);
 
-        setTotalPrice((prevTotalPrice) => prevTotalPrice + product.price * quantity);
-        setTotalQuantities((prevTotalQuantities) => prevTotalQuantities + quantity);
+    setTotalPrice(
+        (prevTotalPrice) => prevTotalPrice + product.price * quantity
+    );
+    setTotalQuantities(
+        (prevTotalQuantities) => prevTotalQuantities + quantity
+    );
 
-        if (checkProductInCart) {
-            const updatedCartItems = cartItems.map((cartProduct) => {
-                if (cartProduct._id === product._id)
-                return { ...cartProduct, quantity: cartProduct.quantity + quantity, };
-            });
-            setCartItems(updatedCartItems);
+    if (checkProductInCart) {
+        // ✅ properly return for all items, not just matched one
+        const updatedCartItems = cartItems.map((cartProduct) => {
+        if (cartProduct._id === product._id) {
+            // Merge data safely (keep selectedCategories if new one has them)
+            return {
+            ...cartProduct,
+            quantity: cartProduct.quantity + quantity,
+            selectedCategories:
+                product.selectedCategories || cartProduct.selectedCategories,
+            };
         } else {
-            product.quantity = quantity;
-            setCartItems([...cartItems, { ...product }]);
+            return cartProduct;
         }
-        
-        toast.success(`${qty} ${product.name.en} added to the cart.`);
+        });
+
+        setCartItems(updatedCartItems);
+    } else {
+        // ✅ new product (meal or normal)
+        const newProduct = {
+        ...product,
+        quantity,
+        selectedCategories: product.selectedCategories || [],
+        };
+        setCartItems([...cartItems, newProduct]);
+    }
+
+    // ✅ safer toast message
+    toast.success(
+        `${quantity} ${product.name?.en || product.name} added to the cart.`
+    );
     };
-*/
+
     const onRemove = (product) => {
         foundProduct = cartItems.find((item) => item._id === product._id);
         const newCartItems = cartItems.filter((item) => item._id !== product._id);
@@ -140,9 +118,7 @@ const onAdd = (product, quantity) => {
 return (
     <Context.Provider
         value={{showCart, setShowCart, cartItems, totalPrice, totalQuantities, qty, userInfo, setUserInfo, logoutUser,
-        incQty, decQty, onAdd, toggleCartItemQuantity, onRemove,
-        setCartItems, setTotalPrice, setTotalQuantities,
-        }}
+        incQty, decQty, onAdd, toggleCartItemQuantity, onRemove, setCartItems, setTotalPrice, setTotalQuantities, }}
     >
         {children}
     </Context.Provider>

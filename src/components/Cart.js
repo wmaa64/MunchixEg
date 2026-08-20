@@ -8,9 +8,10 @@ import { useTranslation } from "react-i18next";
 import { eUSLocale } from "../../lib/utils";
 import EmptyCart from "./Cart/EmptyCart";
 import toast from "react-hot-toast";
+import { useRouter } from "next/router";
 
 const Cart = () => {
-  const cartRef = useRef();
+  //const cartRef = useRef();
   const { i18n } = useTranslation();
   const { totalPrice, totalQuantities, cartItems, setShowCart, userInfo, onRemove, } = useStateContext();
 
@@ -20,6 +21,8 @@ const Cart = () => {
 
   const [address, setAddress] = useState("");
   const [deliveryInstructions, setDeliveryInstructions] = useState("");
+
+  const router = useRouter()
 
   const [loading, setLoading] = useState(false);
 
@@ -288,11 +291,12 @@ const handleCheckout = async () => {
 };
 
   return (
-    <div className="cart-wrapper" ref={cartRef} dir={isRTL ? "rtl" : "ltr"}>
+    <div className="checkout-page-cart-wrapper" dir={isRTL ? "rtl" : "ltr"}>
 
       <div className="cart-container">
-        <button type="button"  className="cart-heading"  onClick={() => setShowCart(false)}  >
-          <AiOutlineLeft />
+        
+        <button type="button"  className="cart-heading"  onClick={() => router.back()}  >
+          <AiOutlineLeft className="back-icon" />
           <span className="heading">{isRTL ? "سلة التسوق" : "Your Cart"}</span>
           <span className="cart-num-items">({ totalQuantities}  {isRTL ? "عناصر" : "items"})</span>
         </button>
@@ -302,7 +306,7 @@ const handleCheckout = async () => {
             <Link href="/">
               <button
                 type="button"
-                onClick={() => setShowCart(false)}
+                onClick=""
                 className="btn"
               >
                 {isRTL ? "متابعة التسوق" : "Continue Shopping"}
@@ -321,8 +325,9 @@ const handleCheckout = async () => {
                   className="remove-item"
                   onClick={() => onRemove(item)}
                 >
-                  <TiDeleteOutline />
+                  <TiDeleteOutline className="remove-icon" />
                 </button>
+
                 <img src={item?.image} className="cart-product-image" />
 
                 <div className="item-desc">
@@ -481,19 +486,19 @@ const handleCheckout = async () => {
               <h3>جنيه {eUSLocale(totalPrice)}</h3>
             </div>
 
-            <div>
+            <div  className="delivery-summary">
                 <h3>{isRTL ? "الشحن:" : "Delivery:"}</h3>
                 <h3>
                   جنيه {eUSLocale(deliveryFee)}
                 </h3>
-              </div>
+            </div>
 
-              <div>
-                <h3>{isRTL ? "الإجمالي:" : "Total:"}</h3>
-                <h3>
-                  جنيه {eUSLocale(finalTotal)}
-                </h3>
-              </div>
+            <div className="big-total-summary">
+              <h3>{isRTL ? "الإجمالي:" : "Total:"}</h3>
+              <h3>
+                جنيه {eUSLocale(finalTotal)}
+              </h3>
+            </div>
               
             <div className="btn-container">
               <button  type="button"  className="btn"  onClick={handleCheckout} disabled={!canCheckout || loading}
