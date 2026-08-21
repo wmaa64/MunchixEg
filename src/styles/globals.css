@@ -807,6 +807,65 @@ a {
   color: #f02d34;
 }
 
+/* Meal Construction Section ------------------*/
+
+.meal-construction-wrapper {
+  padding: 20px;
+}
+
+.meal-construction-wrapper > img {
+  width: 300px ;
+  border-radius: 10px; 
+}
+
+.meal-construction-wrapper > h1 ,
+.meal-construction-wrapper > p {
+  font-size: 35px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid black;
+}
+
+.meal-main-categories {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding:10px;
+  margin-bottom: 10px;
+}
+
+.meal-main-categories > h3 {
+  font-size: 35px;
+}
+
+.meal-category {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.category-card {
+  font-size: 30px;
+}
+
+.minus-plus {
+  font-size: 45px;
+}
+
+.overall-meal-section {
+  font-size: 35px;
+}
+
+.addbtn {
+  font-size: 35px;
+  color: white;
+  background-color: blue;
+  width: 350px;
+
+}
+
+.overall-meal-section span {
+  font-size: 45px;
+}
+
 /* CART COMPONENT ---------------------------- */
 
 @keyframes move {
@@ -2643,6 +2702,43 @@ table.additional-info > tbody > tr > th {
 .success .description .email {
   margin-left: 5px;
   color: #f02d34;
+}
+
+/* Meal Construction Section*/
+
+.meal-construction-wrapper {
+  padding: 20px;
+}
+
+.meal-construction-wrapper > img {
+  width: 300px ;
+  border-radius: 10px; 
+}
+
+.meal-construction-wrapper > p {
+  margin-bottom: 10px;
+  border-bottom: 1px solid black;
+}
+
+.meal-main-categories {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding:10px;
+  margin-bottom: 10px;
+}
+
+.meal-category {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+
+.addbtn {
+  font-size: 14px;
+  color: white;
+  background-color: blue;
+  width: 200px;
 }
 
 /* CART COMPONENT ---------------------------- */

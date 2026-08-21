@@ -161,34 +161,23 @@ const handleAddMeal = () => {
   if (!meal) return <p>Loading meal details...</p>;
 
   return (
-    <div style={{ padding: "20px" }} dir={isRTL ? "rtl" : "ltr"}>
+    <div className="meal-construction-wrapper"  dir={isRTL ? "rtl" : "ltr"}>
 
       <h1>{isRTL ? meal.name.ar : meal.name.en}</h1>
-      <img
-        src={meal.image}
-        alt={isRTL ? meal.name.ar : meal.name.en}
-        style={{ width: "300px", borderRadius: "10px" }}
-      />
+      
+      <img  src={meal.image}  alt={isRTL ? meal.name.ar : meal.name.en}/>
+
       <p>{isRTL ? meal.description.ar : meal.description.en}</p>
 
       <h2>{isRTL ? "بناء طعامك" : "Build Your Meal"}</h2>
 
       {/* Render categories */}
       {meal.mealComponents.map((comp, index) => (
-        <div
-          key={index}
-          style={{
-            border: "1px solid #ddd",
-            borderRadius: "8px",
-            padding: "10px",
-            marginBottom: "10px",
-          }}
-        >
-          <h3>
-            {comp.category.toUpperCase()} (Choose {comp.quantity})
-          </h3>
+        <div  className="meal-main-categories"    key={index} >
+          
+          <h3> {comp.category.toUpperCase()} (Choose {comp.quantity})  </h3>
 
-          <div style={{ display: "flex", flexWrap: "wrap", gap: "12px" }}>
+          <div className="meal-category" >
             {allProducts
               .filter((p) =>
                 comp.products.map((pid) => pid.toString()).includes(p._id)
@@ -197,7 +186,7 @@ const handleAddMeal = () => {
                 const qtySelected =
                   selectedItems[comp.category]?.[p._id]?.quantity || 0;
                 return (
-                  <div
+                  <div  className="category-card"
                     key={p._id}
                     style={{
                       border:
@@ -211,15 +200,11 @@ const handleAddMeal = () => {
                     <img
                       src={p.image}
                       alt={p.name.en}
-                      style={{
-                        width: "100%",
-                        height: "100px",
-                        objectFit: "cover",
-                        borderRadius: "8px",
-                      }}
+                      style={{ width: "100%", height: "100px", objectFit: "cover", borderRadius: "8px", }}
                     />
+
                     <p>{isRTL ? p.name.ar : p.name.en}</p>
-                    <small>{p.price} {isRTL ? "ج.م" : "EGP"}</small>
+                    <p>{p.price} {isRTL ? "ج.م" : "EGP"}</p>
 
                     {/* Quantity per subitem */}
                     <div
@@ -231,7 +216,7 @@ const handleAddMeal = () => {
                       }}
                     >
                       <IconButton
-                        size="small"
+                        size="medium"
                         onClick={() =>
                           handleQuantityChange(
                             comp.category,
@@ -241,13 +226,13 @@ const handleAddMeal = () => {
                           )
                         }
                       >
-                        <AiOutlineMinus />
+                        <AiOutlineMinus className="minus-plus"/>
                       </IconButton>
 
                       <span>{qtySelected}</span>
 
                       <IconButton
-                        size="small"
+                        size="medium"
                         onClick={() =>
                           handleQuantityChange(
                             comp.category,
@@ -257,7 +242,7 @@ const handleAddMeal = () => {
                           )
                         }
                       >
-                        <AiOutlinePlus />
+                        <AiOutlinePlus className="minus-plus"/>
                       </IconButton>
                     </div>
                   </div>
@@ -268,29 +253,30 @@ const handleAddMeal = () => {
       ))}
 
       {/* Overall meal quantity */}
-      <div style={{ marginTop: "30px" }}>
-        <h3>Meal Quantity:</h3>
+      <div className="overall-meal-section" style={{ marginTop: "30px" }}>
+        
+        <h3>{ isRTL ? "الكمية من الوجبة" : "Meal Quantity:"}</h3>
+        
         <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
           <IconButton size="small" onClick={decQty}>
-            <AiOutlineMinus />
+            <AiOutlineMinus className="minus-plus"/>
           </IconButton>
 
           <span>{qty}</span>
 
           <IconButton size="small" onClick={incQty}>
-            <AiOutlinePlus />
+            <AiOutlinePlus className="minus-plus"/>
           </IconButton>
         </div>
       </div>
 
-      <Button
-        variant="contained"
-        color="primary"
+      <button className="addbtn"
         onClick={handleAddMeal}
         style={{ marginTop: "20px" }}
       >
         {isRTL ? "إضافة الوجبة إلى السلة" : "Add Meal to Basket"}
-      </Button>
+      </button>
+
     </div>
   );
 };
