@@ -153,8 +153,10 @@ const handleAddMeal = () => {
   console.log("🧾 Adding meal to cart:", fullMeal);
 
   onAdd(fullMeal, qty);
-  setShowCart(true);
+  //setShowCart(true);
   alert(`Meal added to basket! Total: ${totalPrice} EGP`);
+  router.push("/checkout");
+  
 };
 
 
@@ -270,12 +272,19 @@ const handleAddMeal = () => {
         </div>
       </div>
 
-      <button className="addbtn"
+      <Button 
+        variant="contained"
+        color="primary"
         onClick={handleAddMeal}
-        style={{ marginTop: "20px" }}
+        sx={{ marginTop: "20px",  
+              fontSize: {
+                xs: "35px",
+                sm: "16px",
+              },
+        }}
       >
         {isRTL ? "إضافة الوجبة إلى السلة" : "Add Meal to Basket"}
-      </button>
+      </Button>
 
     </div>
   );
