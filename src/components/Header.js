@@ -3,15 +3,18 @@ import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import Flag from 'react-world-flags';
 import { useStateContext } from "../../context/StateContext";
-import { AiFillInstagram, AiOutlineTwitter, AiFillFacebook, AiOutlineWhatsApp, AiOutlineShopping } from "react-icons/ai";
+import { AiOutlineShopping } from "react-icons/ai";
 import i18n from '../i18n';
 import Link from "next/link";
 import Cart from './Cart';
+import { useRouter } from 'next/router';
 
 const Header = () => {
   const { t} = useTranslation();
   const { showCart, setShowCart, totalQuantities, userInfo, setUserInfo, logoutUser } = useStateContext();
   const language = i18n.language;
+  const router = useRouter();
+  
   const [mounted, setMounted] = useState(false);
   
   //const [language, setLanguage] = useState('en');
@@ -100,7 +103,7 @@ const Header = () => {
           )}
           
           <div className='sign-wrapper'>
-            <button  type="button"   className="cart-icon"  onClick={() => setShowCart(true)}>
+            <button  type="button"   className="cart-icon"  onClick={() => router.push("/checkout") }>
                 <AiOutlineShopping   className='shopping-icon'  />
                 <span className="cart-item-qty">{totalQuantities}</span>
             </button>

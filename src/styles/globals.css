@@ -771,17 +771,18 @@ a {
 
 .success .icon {
   color: green;
-  font-size: 40px;
+  font-size: 100px;
 }
+
 .success h2 {
   text-transform: capitalize;
   margin-top: 15px 0px;
   font-weight: 900;
-  font-size: 40px;
+  font-size: 45px;
   color: #324d67;
 }
 .success .email-msg {
-  font-size: 16px;
+  font-size: 35px;
   font-weight: 600;
   text-align: center;
 }
@@ -796,7 +797,7 @@ a {
 }
 .success .description {
   color: red;
-  font-size: 16px;
+  font-size: 40px;
   font-weight: 600;
   text-align: center;
   margin: 10px;
@@ -805,6 +806,10 @@ a {
 .success .description .email {
   margin-left: 5px;
   color: #f02d34;
+}
+
+.success .btn {
+  font-size: 35px;
 }
 
 /* Meal Construction Section ------------------*/
@@ -978,6 +983,16 @@ span.item-desc {
   color: red;
   font-size: 16px;
 }
+
+
+.cart-container .btn {
+  background-color: red;
+  color: white;
+  width: 400px;
+  font-size: 35px;
+  font-weight: 500;
+}
+
 
 .cart-num-items {
   margin-left: 10px;
@@ -1834,12 +1849,22 @@ table.additional-info > tbody > tr > th {
   flex-direction: column;
   width: 100%;
   margin-right: 20% ;
+  font-size: 35px;
 }
 
 .form-field-checkbox {
   display: flex;
   flex-direction: row;
 } 
+
+.form-container .btn {
+  background-color: red;
+  color: white;
+  width: 400px;
+  font-size: 35px;
+  font-weight: 500;
+  border-radius: 15px;  
+}
 
 .images-container-manage { 
   display: flex; 
@@ -2652,6 +2677,7 @@ table.additional-info > tbody > tr > th {
   background-color: white;
   min-height: 60vh;
 }
+
 .success,
 .canceled {
   width: 1000px;
@@ -2670,6 +2696,7 @@ table.additional-info > tbody > tr > th {
   color: green;
   font-size: 40px;
 }
+
 .success h2 {
   text-transform: capitalize;
   margin-top: 15px 0px;
@@ -2828,6 +2855,14 @@ span.item-desc {
 .cart-container button {
   color: red;
   font-size: 16px;
+}
+
+.cart-container .btn {
+  background-color: red;
+  color: white;
+  width: 200px;
+  font-size: 16px;
+  font-weight: 500;
 }
 
 .cart-num-items {

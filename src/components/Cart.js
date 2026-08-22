@@ -303,15 +303,13 @@ const handleCheckout = async () => {
 
         {cartItems.length < 1 && (
           <EmptyCart>
-            <Link href="/">
               <button
                 type="button"
-                onClick=""
+                onClick={ () => router.push("/")}
                 className="btn"
               >
                 {isRTL ? "متابعة التسوق" : "Continue Shopping"}
               </button>
-            </Link>
           </EmptyCart>
         )}
 

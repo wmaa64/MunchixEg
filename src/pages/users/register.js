@@ -91,8 +91,8 @@ const RegisterPage = () => {
           required
         />
 
-        <label>
-          <input
+        <label  className="form-field">
+          <input  
             type="checkbox"
             name="isSeller"
             checked={formData.isSeller}
@@ -103,8 +103,8 @@ const RegisterPage = () => {
           Seller Account
         </label>
 
-        <label>
-          <input
+        <label  className="form-field">
+          <input  
             type="checkbox"
             name="isAdmin"
             checked={formData.isAdmin}
@@ -115,7 +115,7 @@ const RegisterPage = () => {
           Admin Account
         </label>
 
-        <button className="form-field" type="submit">Register</button>
+        <button className="btn" type="submit">Register</button>
       </form>
     </div>
   );
