@@ -65,6 +65,7 @@ a {
 /* HOMEPAGE ---------------------------------------- */
 
 /* Main homepage logo */
+/*
 .frontlogo {
   background-position: center top;
   background-image: url("../../public/images/newfrontimage.jpg");
@@ -72,6 +73,7 @@ a {
   width: 100%;
   height: 800px;
 }
+*/
 
 /* "Luxury Macarons made by hand" banner on front page */
 .banner {
@@ -2079,6 +2081,111 @@ table.additional-info > tbody > tr > th {
   font-size: 35px;
 }
 
+/* My Orders -------------------  */
+.my-orders-select-date {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+  padding-top: 15px;
+}
+
+.my-orders-select-date label {
+  padding: 5px 10px;
+  font-size: 35px;
+}
+
+.my-orders-select-date input {
+  width: 300px;
+  max-width: 80%;
+
+  padding: 5px 10px;
+
+  border: 1px solid #ccc;
+  border-radius: 6px;
+
+  font-size: 35px;
+  font-weight: 500;
+}
+
+.my-orders-list {
+  width: 90%;
+  max-width: 900px;
+  margin: 30px auto;
+  font-size: 35px;
+}
+
+.my-order-card {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 20px;
+  background: white;
+}
+
+.my-order-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 15px;
+}
+
+.my-order-header h3 {
+  margin: 0;
+}
+
+.my-order-header p {
+  margin: 5px 0 0;
+  color: #777;
+}
+
+.my-order-status {
+  padding: 6px 12px;
+  border-radius: 5px;
+  background: #eee;
+}
+
+.my-order-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 15px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.my-order-item img {
+  width: 70px;
+  height: 70px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.my-order-item-info {
+  flex: 1;
+}
+
+.my-order-item-info h4,
+.my-order-item-info p {
+  margin: 3px 0;
+}
+
+.my-order-details {
+  margin-top: 20px;
+}
+
+.my-order-details p {
+  display: flex;
+  justify-content: space-between;
+  margin: 8px 0;
+}
+
+.my-order-total {
+  border-top: 1px solid #ddd;
+  padding-top: 12px;
+  font-size: 35px;
+}
+/* End of my Orders -----------*/
+
 }
 /* End Of Mobile Design -------------------------------*/
 
@@ -3945,5 +4052,110 @@ table.additional-info > tbody > tr > th {
   display: inline-block;
   vertical-align: middle;
 }
+
+/* My Orders -------------------  */
+.my-orders-select-date {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+  padding-top: 15px;
+}
+
+.my-orders-select-date label {
+  padding: 5px 10px;
+  font-size: 14px;
+}
+
+.my-orders-select-date input {
+  width: 300px;
+  max-width: 80%;
+
+  padding: 5px 10px;
+
+  border: 1px solid #ccc;
+  border-radius: 6px;
+
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.my-orders-list {
+  width: 90%;
+  max-width: 900px;
+  margin: 30px auto;
+}
+
+.my-order-card {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 20px;
+  background: white;
+}
+
+.my-order-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 15px;
+}
+
+.my-order-header h3 {
+  margin: 0;
+}
+
+.my-order-header p {
+  margin: 5px 0 0;
+  color: #777;
+}
+
+.my-order-status {
+  padding: 6px 12px;
+  border-radius: 5px;
+  background: #eee;
+}
+
+.my-order-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 15px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.my-order-item img {
+  width: 70px;
+  height: 70px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.my-order-item-info {
+  flex: 1;
+}
+
+.my-order-item-info h4,
+.my-order-item-info p {
+  margin: 3px 0;
+}
+
+.my-order-details {
+  margin-top: 20px;
+}
+
+.my-order-details p {
+  display: flex;
+  justify-content: space-between;
+  margin: 8px 0;
+}
+
+.my-order-total {
+  border-top: 1px solid #ddd;
+  padding-top: 12px;
+  font-size: 18px;
+}
+/* End of my Orders -----------*/
+
 
 }

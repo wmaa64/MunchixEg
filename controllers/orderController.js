@@ -9,13 +9,30 @@ const getOrders = async () => {
 
 // 🟩 Get orders by date
 const getOrdersByDate = async (date) => {
-  if (!date) throw new Error("Date parameter is required");
+  if (!date)  throw new Error("Date parameter is required");
 
   const start = new Date(date);
   const end = new Date(date);
   end.setDate(end.getDate() + 1);
 
   const orders = await Order.find({
+    createdAt: { $gte: start, $lt: end },
+  }).sort({ createdAt: -1 });
+
+  return orders;
+};
+
+// 🟩 Get orders by date
+const getOrdersByDateAndEmail = async (date, email) => {
+  if (!date)  throw new Error("Date parameter is required");
+  if (!email) throw new Error("Email parameter is required");
+
+  const start = new Date(date);
+  const end = new Date(date);
+  end.setDate(end.getDate() + 1);
+
+  const orders = await Order.find({
+    email: email,
     createdAt: { $gte: start, $lt: end },
   }).sort({ createdAt: -1 });
 
@@ -441,4 +458,4 @@ const updateOrderStatus = async (orderId, newStatus) => {
   return updated;
 };
 
-export  { getOrders, getOrdersByDate, createOrder, updateOrder, updateOrderStatus };
+export  { getOrders, getOrdersByDate, getOrdersByDateAndEmail, createOrder, updateOrder, updateOrderStatus };

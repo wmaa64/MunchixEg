@@ -1,5 +1,5 @@
 import connectDB from '../../../../lib/db';
-import { getOrders, getOrdersByDate, createOrder } from '../../../../controllers/orderController';
+import { getOrders, getOrdersByDate, getOrdersByDateAndEmail, createOrder } from '../../../../controllers/orderController';
 
 export default async (req, res) => {
   console.log("📩 Incoming API request:", req.method);
@@ -8,8 +8,17 @@ export default async (req, res) => {
 
   if (req.method === 'GET') {
     try {
-      const { date } = req.query;
-      const orders = date ? await getOrdersByDate(date) : await getOrders();
+      const { date, email } = req.query;
+
+      let orders;
+
+      if (date && email) {
+        orders = await getOrdersByDateAndEmail(date, email);
+      } else if (date) {
+        orders = await getOrdersByDate(date);
+      } else {
+        orders = await getOrders();
+      }
 
       res.status(200).json(orders);
     } catch (error) {
