@@ -11,13 +11,13 @@ const Home = () => {
   const [loading, setLoading] = useState(true);
 
   const images = [
-    '/images/image1.jpg',
-    '/images/image2u.jpg',
-    '/images/image3u.jpg',
-    '/images/image4u.jpg',
-    '/images/image5u.jpg',
-    '/images/image6u.jpg',
-    '/images/image7u.jpg',
+    '/images/carousel/img1.webp',
+    '/images/carousel/img2.webp',
+    '/images/carousel/img3.webp',
+    '/images/carousel/img4.webp',
+    '/images/carousel/img5.webp',
+    '/images/carousel/img6.webp',
+    '/images/carousel/img7.webp',
   ];
 
       useEffect(() => {

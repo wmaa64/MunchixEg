@@ -1885,7 +1885,7 @@ table.additional-info > tbody > tr > th {
 .carousel {
   display: flex;
   width: 100%;
-  height: 300px;
+  height: 700px;
   position: relative;
   overflow: hidden;
   margin: 0 auto;
@@ -1895,7 +1895,7 @@ table.additional-info > tbody > tr > th {
 .carousel-image {
   width: 100%;
   height: 100%;
-  object-fit: fill  ;
+  object-fit: contain;
   position: absolute;
   top: 0;
   left: 0;
@@ -3867,7 +3867,7 @@ table.additional-info > tbody > tr > th {
 /* === Image Carousel Styles === */
 .carousel {
   width: 100%;
-  height: 300px;
+  height: 400px;
   position: relative;
   overflow: hidden;
   margin: 0 auto;
@@ -3877,7 +3877,7 @@ table.additional-info > tbody > tr > th {
 .carousel-image {
   width: 100%;
   height: 100%;
-  object-fit: fill;
+  object-fit:contain;
   position: absolute;
   top: 0;
   left: 0;
