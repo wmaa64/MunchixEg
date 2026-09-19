@@ -18,7 +18,7 @@ const resources = {
         "newProducts": "New Products",
         "TopSellingProducts":"TOP SELLING",
         "searchResuls": "Search Results",
-        "welcome": "Welcome",
+        "welcome": "Welcome ",
         "guest": "Guest",
 
         //Header
@@ -44,7 +44,7 @@ const resources = {
         "newProducts": "منتجات جديدة",
         "TopSellingProducts": "الاكثر مبيعا",
         "searchResuls": "نتائج البحث",
-        "welcome": "مرحبًا،",
+        "welcome": "مرحبًا ",
         "guest": "ضيف",
 
         //Header
