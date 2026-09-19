@@ -59,8 +59,8 @@ return (
 
     {userInfo ? (
         <div className="user-info" >
-            <span>{t("welcome")}</span>
-            <strong>{(userInfo.name).substring(0, (userInfo.name).indexOf(' '))}</strong>
+            <span>{t("welcome  ")}</span>
+            <strong>{userInfo.name}</strong>
         </div>
     ) : (
         <div className="user-info">{t("guest")}</div>
@@ -78,6 +78,13 @@ return (
                     {isRTL ? "طلباتي" : "My Orders"}
                 </Link>
             )}
+
+            {userInfo?.isSeller && (
+                <Link href="/statistics" className="navbar-link">
+                    {isRTL ? "الإحصائيات" : "Statistics"}
+                </Link>
+            )}
+
         </div>
 
         <form className="navbar-search" onSubmit={handleSearch}>

@@ -3,6 +3,8 @@ import {Toaster} from "react-hot-toast";
 import {Layout} from "../components";
 import "../styles/globals.css"; /* common page elements */
 import "../styles/index.scss";  /* main styles */
+import "../styles/statistics.css";
+
 //import "../styles/mobile.css"; /* mobile styles */
 //import "../styles/tablet.css"; /* tablet styles */
 import "../styles/overrides/portable.css"; /* override tablet styles for portrait */

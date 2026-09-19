@@ -1,0 +1,631 @@
+
+/* ========================================
+   Statistics Page
+======================================== */
+
+.statistics-page {
+    width: 90%;
+    max-width: 1200px;
+    margin: 30px auto;
+    padding-bottom: 40px;
+}
+
+
+/* ========================================
+   Header
+======================================== */
+
+.statistics-header {
+    margin-bottom: 25px;
+}
+
+.statistics-header h1 {
+    margin: 0;
+    font-size: 30px;
+}
+
+.statistics-header p {
+    margin: 6px 0 0;
+    color: #777;
+    font-size: 15px;
+}
+
+
+/* ========================================
+   Filter
+======================================== */
+
+.statistics-filter {
+    display: flex;
+    align-items: flex-end;
+    gap: 15px;
+
+    padding: 20px;
+
+    margin-bottom: 30px;
+
+    background: #fff;
+
+    border: 1px solid #ddd;
+    border-radius: 10px;
+}
+
+
+.statistics-filter-field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+
+.statistics-filter-field label {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+
+.statistics-filter-field input {
+    width: 170px;
+
+    padding: 9px 10px;
+
+    border: 1px solid #ccc;
+    border-radius: 6px;
+
+    font-size: 14px;
+}
+
+
+/* ========================================
+   Buttons
+======================================== */
+
+.statistics-apply-button,
+.statistics-clear-button {
+    height: 38px;
+
+    padding: 0 18px;
+
+    border: none;
+    border-radius: 6px;
+
+    cursor: pointer;
+
+    font-size: 14px;
+    font-weight: 600;
+}
+
+
+.statistics-apply-button {
+    background: #222;
+    color: white;
+}
+
+
+.statistics-clear-button {
+    background: #eee;
+    color: #333;
+}
+
+
+.statistics-apply-button:disabled,
+.statistics-clear-button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+
+/* ========================================
+   Error
+======================================== */
+
+.statistics-error {
+    padding: 12px 15px;
+
+    margin-bottom: 20px;
+
+    background: #ffecec;
+
+    border: 1px solid #f1b5b5;
+    border-radius: 6px;
+
+    color: #b00000;
+}
+
+
+/* ========================================
+   Loading
+======================================== */
+
+.statistics-loading {
+    padding: 40px;
+
+    text-align: center;
+
+    color: #777;
+}
+
+
+/* ========================================
+   Statistics Cards
+======================================== */
+
+.statistics-cards {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, minmax(0, 1fr));
+
+    gap: 20px;
+}
+
+
+.statistics-card {
+    padding: 22px;
+
+    background: white;
+
+    border: 1px solid #ddd;
+
+    border-radius: 10px;
+
+    min-height: 110px;
+
+    /* Small colored top border */
+    border-top: 4px solid #333;
+}
+
+
+.statistics-card-title {
+    margin-bottom: 12px;
+
+    color: #666;
+
+    font-size: 14px;
+    font-weight: 600;
+}
+
+
+.statistics-card-value {
+    font-size: 24px;
+    font-weight: 700;
+
+    color: #222;
+}
+
+
+/* ========================================
+   Different Card Colors
+======================================== */
+
+.statistics-card:nth-child(1) {
+    border-top-color: #3498db;
+}
+
+.statistics-card:nth-child(2) {
+    border-top-color: #27ae60;
+}
+
+.statistics-card:nth-child(3) {
+    border-top-color: #8e44ad;
+}
+
+.statistics-card:nth-child(4) {
+    border-top-color: #f39c12;
+}
+
+.statistics-card:nth-child(5) {
+    border-top-color: #e67e22;
+}
+
+.statistics-card:nth-child(6) {
+    border-top-color: #16a085;
+}
+
+.statistics-card:nth-child(7) {
+    border-top-color: #c0392b;
+}
+
+/* ========================================
+   Statistics Sections
+======================================== */
+
+.statistics-section {
+    margin-top: 30px;
+
+    background: white;
+
+    border: 1px solid #ddd;
+
+    border-radius: 10px;
+
+    overflow: hidden;
+}
+
+
+.statistics-section-header {
+    padding: 20px;
+
+    border-bottom: 1px solid #eee;
+}
+
+
+.statistics-section-header h2 {
+    margin: 0;
+
+    font-size: 21px;
+}
+
+
+.statistics-section-header p {
+    margin: 6px 0 0;
+
+    color: #777;
+
+    font-size: 14px;
+}
+
+
+/* ========================================
+   Statistics Table
+======================================== */
+
+.statistics-table-wrapper {
+    width: 100%;
+
+    overflow-x: auto;
+}
+
+
+.statistics-table {
+    width: 100%;
+
+    border-collapse: collapse;
+
+    min-width: 700px;
+}
+
+
+.statistics-table th {
+    padding: 13px 15px;
+
+    background: #f7f7f7;
+
+    border-bottom: 1px solid #ddd;
+
+    text-align: left;
+
+    font-size: 13px;
+
+    color: #555;
+}
+
+
+.statistics-table td {
+    padding: 14px 15px;
+
+    border-bottom: 1px solid #eee;
+
+    font-size: 14px;
+
+    color: #333;
+}
+
+
+.statistics-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+
+.statistics-table tbody tr:hover {
+    background: #fafafa;
+}
+
+
+/* ========================================
+   Product Name
+======================================== */
+
+.statistics-product-name {
+    font-weight: 600;
+
+    color: #222;
+}
+
+
+/* ========================================
+   Product Type
+======================================== */
+
+.statistics-type {
+    display: inline-block;
+
+    padding: 4px 9px;
+
+    border-radius: 5px;
+
+    font-size: 12px;
+
+    font-weight: 600;
+}
+
+
+.statistics-type-item {
+    background: #e8f4fd;
+
+    color: #1976b9;
+}
+
+
+.statistics-type-meal {
+    background: #f3eafa;
+
+    color: #7b3fa1;
+}
+
+
+/* ========================================
+   Delivery Zone
+======================================== */
+
+.statistics-zone-name {
+    font-weight: 600;
+    color: #222;
+    text-transform: capitalize;
+}
+
+/* ========================================
+   Delivery Zone Pie Chart
+======================================== */
+
+.statistics-zone-chart {
+  display: flex;
+  align-items: center;
+  gap: 50px;
+  padding: 30px;
+  border-bottom: 1px solid #eee;
+}
+
+
+/* ========================================
+   Pie
+======================================== */
+
+.statistics-pie-chart {
+  width: 260px;
+  height: 260px;
+  min-width: 260px;
+
+  border-radius: 50%;
+
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+/* ========================================
+   Pie Center
+======================================== */
+
+.statistics-pie-center {
+  width: 125px;
+  height: 125px;
+
+  border-radius: 50%;
+
+  background: white;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  box-shadow: 0 0 0 1px #eee;
+}
+
+.statistics-pie-center strong {
+  font-size: 20px;
+  color: #222;
+}
+
+.statistics-pie-center span {
+  margin-top: 4px;
+  font-size: 13px;
+  color: #777;
+}
+
+
+/* ========================================
+   Legend
+======================================== */
+
+.statistics-zone-legend {
+  flex: 1;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 14px;
+}
+
+.statistics-zone-legend-item {
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+
+  min-height: 42px;
+}
+
+.statistics-zone-color {
+  width: 14px;
+  height: 14px;
+
+  min-width: 14px;
+
+  border-radius: 4px;
+}
+
+.statistics-zone-legend-name {
+  flex: 1;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 3px;
+}
+
+.statistics-zone-legend-name strong {
+  font-size: 14px;
+  color: #333;
+
+  text-transform: capitalize;
+}
+
+.statistics-zone-legend-name span {
+  font-size: 12px;
+  color: #777;
+}
+
+.statistics-zone-percentage {
+  font-size: 14px;
+  color: #333;
+}
+
+
+/* ========================================
+   Existing Zone Name
+======================================== */
+
+.statistics-zone-name {
+  font-weight: 600;
+  color: #222;
+  text-transform: capitalize;
+}
+
+
+/* ========================================
+   Mobile
+======================================== */
+
+@media (max-width: 600px) {
+
+
+}
+
+
+/* ========================================
+   Tablet
+======================================== */
+
+@media (max-width: 900px) {
+
+    .statistics-cards {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+}
+
+
+
+
+/* ========================================
+   Mobile
+======================================== */
+
+@media (max-width: 600px) {
+
+    .statistics-page {
+        width: 94%;
+        margin: 20px auto;
+    }
+
+
+    .statistics-header h1 {
+        font-size: 25px;
+    }
+
+
+    .statistics-filter {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+
+    .statistics-filter-field input {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+
+    .statistics-apply-button,
+    .statistics-clear-button {
+        width: 100%;
+    }
+
+
+    .statistics-cards {
+        grid-template-columns: 1fr;
+
+        gap: 12px;
+    }
+
+
+    .statistics-card {
+        min-height: auto;
+    }
+
+
+    .statistics-section {
+        margin-top: 20px;
+    }
+
+
+    .statistics-section-header {
+        padding: 15px;
+    }
+
+
+    .statistics-section-header h2 {
+        font-size: 19px;
+    }
+
+
+    .statistics-table th,
+    .statistics-table td {
+        padding: 11px 12px;
+    }
+
+      .statistics-zone-chart {
+    flex-direction: column;
+
+    gap: 30px;
+
+    padding: 25px 15px;
+  }
+
+  .statistics-pie-chart {
+    width: 220px;
+    height: 220px;
+
+    min-width: 220px;
+  }
+
+  .statistics-pie-center {
+    width: 105px;
+    height: 105px;
+  }
+
+  .statistics-pie-center strong {
+    font-size: 18px;
+  }
+
+  .statistics-zone-legend {
+    width: 100%;
+  }
+
+}
