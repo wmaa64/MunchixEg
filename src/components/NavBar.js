@@ -59,7 +59,7 @@ return (
 
     {userInfo ? (
         <div className="user-info" >
-            <span>{t("welcome  ")}</span>
+            <span>{t("welcome")}</span>
             <strong>{userInfo.name}</strong>
         </div>
     ) : (
